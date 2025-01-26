@@ -1,0 +1,47 @@
+
+
+#container{
+    height:960px;
+    width:960px;
+
+    display:flex;
+    flex-wrap:wrap;
+
+
+}
+
+
+button {
+    margin-bottom: 20px ;
+    margin-top: 20px ;
+    height:70px;
+    width:200px;
+    background-color:gold;
+    font-size:20px;
+    font-weight:bold;
+}
+
+button:hover {
+
+    transform:translatey(-2px);
+    font-size:21px;
+    transition:0.2s;
+}
+
+button:active {
+
+    transform:translatey(2px);
+    font-size:20px;
+  
+}
+
+ 
+
+
+body {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+}
