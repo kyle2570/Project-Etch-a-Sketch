@@ -16,7 +16,7 @@ button.addEventListener("click",()=>{
 
     if (isNaN(newGridSize) || newGridSize < 0 || newGridSize > 100){
         alert("Invalid input.");
-    }else{
+    }else if (newGridSize != null) {
 
         gridSize = newGridSize;
         deleteCanvas();
@@ -39,7 +39,7 @@ for (let i = 0;i < gridSize**2; i++){
     container.appendChild(grid[i]);
 
     grid[i].addEventListener("mouseenter", ()=> {
-    grid[i].style.backgroundColor = "orange";
+    grid[i].style.backgroundColor = randomColor();
     })
 }
 }
@@ -49,6 +49,16 @@ function deleteCanvas(){
     while (container.firstChild){
         container.removeChild(container.firstChild);
     }
+}
 
 
+function randomColor(){
+
+    let red,blue, green;
+
+    red = Math.min(255*Math.random(),255);
+    blue = Math.min(255*Math.random(),255);
+    green = Math.min(255*Math.random(),255);
+
+    return `rgb(${red}, ${blue},${green})`;
 }
