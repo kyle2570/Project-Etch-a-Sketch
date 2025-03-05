@@ -10,55 +10,55 @@ container.style.width = `${containerSize}px`;;
 createCanvas();
 
 
-button.addEventListener("click",()=>{
+button.addEventListener("click", () => {
 
     let newGridSize = prompt("Enter number of grids per side(max 100): ");
 
-    if (isNaN(newGridSize) || newGridSize < 0 || newGridSize > 100){
+    if (isNaN(newGridSize) || newGridSize < 0 || newGridSize > 100) {
         alert("Invalid input.");
-    }else if (newGridSize != null) {
+    } else if (newGridSize != null) {
 
         gridSize = newGridSize;
         deleteCanvas();
-        createCanvas();    
+        createCanvas();
     }
 })
 
 
 
-function createCanvas(){
+function createCanvas() {
 
-for (let i = 0;i < gridSize**2; i++){
-    grid[i] = document.createElement("div");
+    for (let i = 0; i < gridSize ** 2; i++) {
+        grid[i] = document.createElement("div");
 
-    grid[i].style.outline  = "1px solid grey";
-    grid[i].style.height  =  `${containerSize / gridSize}px`;
-    grid[i].style.width  =  `${containerSize / gridSize}px`;
-    grid[i].style.backgroundColor  =  "silver";
- 
-    container.appendChild(grid[i]);
+        grid[i].style.outline = "1px solid grey";
+        grid[i].style.height = `${containerSize / gridSize}px`;
+        grid[i].style.width = `${containerSize / gridSize}px`;
+        grid[i].style.backgroundColor = "silver";
 
-    grid[i].addEventListener("mouseenter", ()=> {
-    grid[i].style.backgroundColor = randomColor();
-    })
+        container.appendChild(grid[i]);
+
+        grid[i].addEventListener("mouseenter", () => {
+            grid[i].style.backgroundColor = randomColor();
+        })
+    }
 }
-}
 
 
-function deleteCanvas(){
-    while (container.firstChild){
+function deleteCanvas() {
+    while (container.firstChild) {
         container.removeChild(container.firstChild);
     }
 }
 
 
-function randomColor(){
+function randomColor() {
 
-    let red,blue, green;
+    let red, blue, green;
 
-    red = Math.min(255*Math.random(),255);
-    blue = Math.min(255*Math.random(),255);
-    green = Math.min(255*Math.random(),255);
+    red = Math.min(255 * Math.random(), 255);
+    blue = Math.min(255 * Math.random(), 255);
+    green = Math.min(255 * Math.random(), 255);
 
     return `rgb(${red}, ${blue},${green})`;
 }
